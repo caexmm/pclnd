@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PicLand — Редактирование профиля</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Rubik+Doodle+Shadow&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/edit-profile.css"/>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">PicLand</a>
+      <button class="burger-btn" id="burgerBtn">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+      <div class="nav-container" id="navContainer">
+        <nav class="main-nav">
+          <a href="index.html">Главная</a>
+          <a href="new-post.html">Новый пост</a>
+        </nav>
+        <div class="auth-links">
+          <a href="login.html" id="login-btn">Войти</a>
+          <a href="register.html" id="register-btn">Зарегистрироваться</a>
+        </div>
+        <div class="user-links" style="display: none;">
+          <a href="" id="logout-btn">Выйти</a>
+          <a href="profile.html" class="username" id="nav-username">Профиль</a>
+        </div>
+      </div>
+      <div class="overlay" id="overlay"></div>
+    </div>
+  </header>
+
+  <main class="edit-profile-container">
+    <h1 class="edit-title">Редактировать профиль</h1>
+
+    <div class="profile-edit-section">
+      <div class="avatar-edit">
+        <img
+          id="avatarPreview"
+          src="img/default-avatar.png"
+          alt="Аватар"
+          class="avatar-large"
+        />
+        <button
+          type="button"
+          class="btn btn-avatar"
+          id="changeAvatarBtn"
+        >Изменить аватар</button>
+        <input
+          type="file"
+          id="avatarInput"
+          name="avatar"
+          accept="image/*"
+          style="display:none"
+        />
+      </div>
+
+      <div class="profile-edit-fields">
+        <form
+          id="editProfileForm"
+          enctype="multipart/form-data"
+        >
+          <div class="form-group name-field">
+            <label for="name">Имя</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="login">Логин</label>
+            <input
+              type="text"
+              id="login"
+              name="login"
+              disabled
+            />
+          </div>
+
+          <div class="form-group bio-group">
+            <label for="bio">Обо мне</label>
+            <textarea
+              id="bio"
+              name="bio"
+              rows="4"
+            ></textarea>
+          </div>
+
+          <div class="info-grid">
+            <div class="form-group">
+              <label for="email">Электронная почта</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="dob">Дата рождения</label>
+              <input
+                type="date"
+                id="dob"
+                name="dob"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="createdAt">Дата регистрации</label>
+              <input
+                type="text"
+                id="createdAt"
+                name="createdAt"
+                disabled
+              />
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button
+              type="submit"
+              class="btn btn-green save-btn"
+            >Сохранить</button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              id="cancelBtn"
+            >Отмена</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="password-section">
+      <h3>Изменить пароль</h3>
+      <form id="passwordForm">
+        <div class="form-group">
+          <label for="currentPassword">Текущий пароль</label>
+          <input
+            type="password"
+            id="currentPassword"
+            name="currentPassword"
+            placeholder="Введите текущий пароль"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="newPassword">Новый пароль</label>
+          <input
+            type="password"
+            id="newPassword"
+            name="newPassword"
+            placeholder="Введите новый пароль"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Подтвердите пароль</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Повторите новый пароль"
+            required
+          />
+        </div>
+        <div class="form-actions">
+          <button
+            type="submit"
+            class="btn btn-purple change-password"
+          >Изменить пароль</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="delete-account-section">
+      <button
+        type="button"
+        class="btn btn-danger delete-account"
+        id="deleteAccountBtn"
+      >Удалить аккаунт</button>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+  <script src="js/edit-profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>PicLand — Регистрация</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">PicLand</a>
+      <button class="burger-btn" id="burgerBtn">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+      <div class="nav-container" id="navContainer">
+        <nav class="main-nav">
+          <a href="index.html">Главная</a>
+          <a href="new-post.html">Новый пост</a>
+        </nav>
+        <div class="auth-links">
+          <a href="login.html" id="login-btn">Войти</a>
+          <a href="register.html" id="register-btn">Зарегистрироваться</a>
+        </div>
+      </div>
+      <div class="overlay" id="overlay"></div>
+    </div>
+  </header>
+
+  <main class="auth-container">
+    <div class="auth-card">
+      <h1 class="auth-title">Регистрация</h1>
+      <form class="auth-form" id="registerForm">
+        <div class="form-group">
+          <label for="reg-email">Электронная почта</label>
+          <input type="email" id="reg-email" name="email" placeholder="Ваш email" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-login">Логин</label>
+          <input type="text" id="reg-login" name="username" placeholder="Придумайте логин" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-password">Пароль</label>
+          <input type="password" id="reg-password" name="password" placeholder="Придумайте пароль" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-confirm">Подтвердите пароль</label>
+          <input type="password" id="reg-confirm" placeholder="Повторите пароль" required>
+        </div>
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox" id="reg-agree" required> Я согласен с <a href="#">условиями</a>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-green btn-block">Зарегистрироваться</button>
+        <p class="auth-footer">
+          Уже есть аккаунт? <a href="login.html">Войти</a>
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+  <script src="js/register.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const burgerBtn = document.getElementById('burgerBtn');
+      const navContainer = document.getElementById('navContainer');
+      const overlay = document.getElementById('overlay');
+
+      if (!burgerBtn || !navContainer || !overlay) return;
+
+      burgerBtn.addEventListener('click', () => {
+        burgerBtn.classList.toggle('active');
+        navContainer.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = navContainer.classList.contains('active') ? 'hidden' : '';
+      });
+
+      overlay.addEventListener('click', () => {
+        burgerBtn.classList.remove('active');
+        navContainer.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+
+      navContainer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          burgerBtn.classList.remove('active');
+          navContainer.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    });
+  </script>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>© PicLand Corporation</p>
+    </div>
+  </footer>
+</body>
+</html>

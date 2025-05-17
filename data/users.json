@@ -1,0 +1,18 @@
+[
+  {
+    "username": "mari.panteleeva.03@mail.ru",
+    "email": "mari.panteleeva.03@mail.ru",
+    "passwordHash": "$2b$10$ZEqOCgJD18a5cJKtjpH90eIkM8bVC743K0sfUgKNpWUrAesFgQxnq",
+    "avatar": null
+  },
+  {
+    "username": "eere",
+    "email": "kapralhikka@mail.ru",
+    "passwordHash": "$2b$10$amAtNLEfnFy0MRrf5KOCquWme2w.NMMZ8tAXO5xohQDHd5MOYhzDa",
+    "avatar": "/uploads/avatars/4c7a6e20a150d10fe3c4f1706bd178d8",
+    "createdAt": "2025-05-17T18:48:33.242Z",
+    "name": "  м",
+    "bio": "люблю постить картинки",
+    "dob": "2025-05-14"
+  }
+]

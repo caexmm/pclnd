@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PicLand - Просмотр поста</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/post.css">
+</head>
+<body>
+<header>
+      <div class="header-container">
+          <a href="index.html" class="logo">PicLand</a>
+
+          <button class="burger-btn" id="burgerBtn">
+              <span class="burger-line"></span>
+              <span class="burger-line"></span>
+              <span class="burger-line"></span>
+          </button>
+          
+         <div class="nav-container" id="navContainer">
+     
+    <nav class="main-nav">     
+        <a href="index.html">Главная</a>
+        <a href="new-post.html">Новый пост</a>
+    </nav>
+    
+    <div class="user-links">
+        <a href="login.html" id="login-btn">Выйти</a>
+         <a href="profile.html" class="username">Ваня Петушков</a>
+    </div>
+</div>
+
+          <div class="overlay" id="overlay"></div>
+      </div>
+  </header>
+
+    <div class="post-container">
+        <h1 class="post-page-title">Пост</h1>
+
+        <div class="post-content">
+            <div class="post-image-container">
+                <img src="img/post1.png" alt="Закат в горах" class="post-image">
+            </div>
+
+            <div class="post-details">
+                <h2 class="post-title">Закат в горах</h2>
+                <p class="post-description">Прекрасный вид на горы во время заката. Снято в Альпах во время моего путешествия. Это был незабываемый момент, когда солнце окрасило вершины в золотистые тона.</p>
+
+                <div class="post-meta">
+                    <span class="post-author">Автор: Иван Петров</span>
+                    <span class="post-date">Опубликовано: 15 мая 2023</span>
+                    <span class="post-category">Категория: Пейзажи</span>
+                </div>
+
+                <button class="btn btn-green share-btn" id="shareBtn">
+                    <i class="fas fa-share-alt"></i> Поделиться
+                </button>
+
+                <div class="share-link-container" id="shareLinkContainer" style="display: none;">
+                    <input type="text" id="postLink" value="https://picland.com/post/12345" readonly>
+                    <button class="btn btn-copy" id="copyBtn">Копировать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/post.js"></script>
+       <script src="js/script.js"></script>
+
+
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const burgerBtn = document.getElementById('burgerBtn');
+    const navContainer = document.getElementById('navContainer');
+    const overlay = document.getElementById('overlay');
+
+    if (burgerBtn && navContainer && overlay) {
+        burgerBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navContainer.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = 
+                navContainer.classList.contains('active') ? 'hidden' : '';
+        });
+
+        overlay.addEventListener('click', function() {
+            burgerBtn.classList.remove('active');
+            navContainer.classList.remove('active');
+            this.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        document.querySelectorAll('.nav-container a').forEach(link => {
+            link.addEventListener('click', () => {
+                burgerBtn.classList.remove('active');
+                navContainer.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+});</script>
+
+<footer class="site-footer">
+    <div class="footer-content">
+         <p>© PicLand Corporation</p>
+    </div>
+</footer>
+
+
+</body>
+</html>
