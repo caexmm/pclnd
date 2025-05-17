@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PicLand — Главная</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">PicLand</a>
+      <button class="burger-btn" id="burgerBtn">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+      <div class="nav-container" id="navContainer">
+        <nav class="main-nav">
+          <a href="index.html">Главная</a>
+          <a href="new-post.html">Новый пост</a>
+        </nav>
+        <div class="auth-links">
+          <a href="login.html" id="login-btn">Войти</a>
+          <a href="register.html" id="register-btn">Зарегистрироваться</a>
+        </div>
+        <div class="user-links" style="display: none;">
+          <a href="#" id="logout-btn">Выйти</a>
+          <a href="profile.html" class="username" id="nav-username">Профиль</a>
+        </div>
+      </div>
+      <div class="overlay" id="overlay"></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="week-posts">
+      <h2>Посты недели</h2>
+      <div class="carousel">
+        <button class="carousel-btn prev-btn">&lt;</button>
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <div class="carousel-slide active">
+              <img src="img/1.png" alt="Пост недели">
+            </div>
+            <div class="carousel-slide">
+              <img src="img/glav2.jpg" alt="Пост недели">
+            </div>
+            <div class="carousel-slide">
+              <img src="img/glav3.jpg" alt="Пост недели">
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn next-btn">&gt;</button>
+      </div>
+    </section>
+
+    <section class="search">
+      <h3>Поиск</h3>
+      <input type="text" id="search-input" placeholder="Найти посты...">
+    </section>
+
+    <section class="categories">
+      <h2>Категории</h2>
+      <div class="category-tabs">
+        <div class="category-tab active">Все</div>
+        <div class="category-tab">Новые</div>
+        <div class="category-tab">Популярные</div>
+        <div class="category-tab">Мемы</div>
+        <div class="category-tab">Животные</div>
+        <div class="category-tab">Искусство</div>
+        <div class="category-tab">Игры</div>
+        <div class="category-tab">Спорт</div>
+      </div>
+      <div class="posts-grid">
+        <a href="post.html?id=1" class="grid-post">
+          <img src="img/mypost1.jpg" alt="Закат в горах">
+          <div class="post-info">
+            <h3>Закат в горах</h3>
+            <p class="post-author">Автор: Иван Петров</p>
+            <p class="post-likes">❤️ 124</p>
+          </div>
+        </a>
+        <a href="post.html?id=2" class="grid-post">
+          <img src="img/dontmypost1.jpg" alt="Мой котёнок">
+          <div class="post-info">
+            <h3>Мой котёнок</h3>
+            <p class="post-author">Автор: Анна Смирнова</p>
+            <p class="post-likes">❤️ 89</p>
+          </div>
+        </a>
+        <a href="post.html?id=3" class="grid-post">
+          <img src="img/dontmypost2.jpg" alt="Ночной город">
+          <div class="post-info">
+            <h3>Ночной город</h3>
+            <p class="post-author">Автор: Алексей Иванов</p>
+            <p class="post-likes">❤️ 76</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+
+</body>
+</html>

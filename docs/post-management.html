@@ -1,0 +1,192 @@
+
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PicLand - Управление постами</title>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/post-management.css">
+
+</head>
+<body>
+ <header>
+      <div class="header-container">
+          <a href="index.html" class="logo">PicLand</a>
+
+          <button class="burger-btn" id="burgerBtn">
+              <span class="burger-line"></span>
+              <span class="burger-line"></span>
+              <span class="burger-line"></span>
+          </button>
+          
+         <div class="nav-container" id="navContainer">
+     
+    <nav class="main-nav">     
+        <a href="index.html">Главная</a>
+        <a href="new-post.html">Новый пост</a>
+    </nav>
+    
+    <div class="user-links">
+        <a href="login.html" id="login-btn">Выйти</a>
+         <a href="profile.html" class="username">Ваня Петушков</a>
+    </div>
+</div>
+
+          <div class="overlay" id="overlay"></div>
+      </div>
+  </header>
+
+    <div class="container">
+        <div class="management-header">
+            <h1 class="page-title">Управление постами</h1>
+            <a href="new-post.html" class="add-post-btn">
+                <i class="fas fa-plus"></i> Добавить новый пост
+            </a>
+        </div>
+
+        <div class="posts-list">
+          <div class="post-item">
+              <img src="img/dontmypost2.jpg" alt="Пост 1" class="post-image">
+              <div class="post-content">
+                  <div>
+                      <h3 class="post-title">Городок</h3>
+                      <p class="post-description">Ночная панорама города с высоты.</p>
+                      <span class="post-category">Город</span>
+                  </div>
+              </div>
+              <div class="post-actions">
+                  <button class="edit-btn" title="Редактировать">
+                      <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  <button class="delete-btn" title="Удалить">
+                      <i class="fas fa-trash"></i>
+                  </button>
+              </div>
+          </div>
+
+          <div class="post-item">
+              <img src="img/mypost2.jpg" alt="Пост 2" class="post-image">
+              <div class="post-content">
+                  <div>
+                      <h3 class="post-title">Мой кот</h3>
+                      <p class="post-description">Мой любимый котик.</p>
+                      <span class="post-category">Животные</span>
+                  </div>
+              </div>
+              <div class="post-actions">
+                  <button class="edit-btn" title="Редактировать">
+                      <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  <button class="delete-btn" title="Удалить">
+                      <i class="fas fa-trash"></i>
+                  </button>
+              </div>
+          </div>
+
+          <div class="post-item">
+              <img src="img/mypost3.jpg" alt="Пост 3" class="post-image">
+              <div class="post-content">
+                  <div>
+                      <h3 class="post-title">Рассвет в горах</h3>
+                      <p class="post-description">Прекрасный вид на горы во время заката. Снято в Альпах</p>
+                      <span class="post-category">Панорама</span>
+                  </div>
+              </div>
+              <div class="post-actions">
+                  <button class="edit-btn" title="Редактировать">
+                      <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  <button class="delete-btn" title="Удалить">
+                      <i class="fas fa-trash"></i>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="modal-overlay" id="editModal" style="display: none;">
+    <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <h2>Редактировать пост</h2>
+        
+        <form class="edit-form">
+            <div class="form-group">
+                <label for="edit-title">Название</label>
+                <input type="text" id="edit-title" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="edit-description">Описание</label>
+                <textarea id="edit-description" rows="4" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="edit-category">Категория</label>
+                <select id="edit-category" required>
+                    <option value="new">Новые</option>
+                    <option value="popular">Популярные</option>
+                    <option value="memes">Мемы</option>
+                    <option value="animals">Животные</option>
+                    <option value="art">Искусство</option>
+                    <option value="games">Игры</option>
+                    <option value="sport">Спорт</option>
+                </select>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" class="btn btn-cancel">Отмена</button>
+                <button type="submit" class="btn btn-green">Сохранить</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <script src="js/post-management.js"></script>
+          <script src="js/script.js"></script>
+
+
+           <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const burgerBtn = document.getElementById('burgerBtn');
+    const navContainer = document.getElementById('navContainer');
+    const overlay = document.getElementById('overlay');
+
+    if (burgerBtn && navContainer && overlay) {
+        burgerBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navContainer.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = 
+                navContainer.classList.contains('active') ? 'hidden' : '';
+        });
+
+        overlay.addEventListener('click', function() {
+            burgerBtn.classList.remove('active');
+            navContainer.classList.remove('active');
+            this.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        document.querySelectorAll('.nav-container a').forEach(link => {
+            link.addEventListener('click', () => {
+                burgerBtn.classList.remove('active');
+                navContainer.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+});</script>
+
+
+<footer class="site-footer">
+    <div class="footer-content">
+         <p>© PicLand Corporation</p>
+    </div>
+</footer>
+
+</body>
+</html>
